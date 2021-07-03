@@ -1,0 +1,53 @@
+# TEMPLATE_ADVANCED
+
+ - Template Inheritance - reuse common parts of app
+        * blocks
+            {% block content %}
+            {% endblock %}
+        * extends - use common html
+            {% extends "name_common_part.html" %}
+
+        * include - include an existing template
+            {% include "blog_header.html" %}
+
+ - Template Filters - allow us to modify variables before displaying them in the browser
+        * built-in filters
+            - {{ name|lower }}
+            - {{ my_date|date:"Y-m-d" }}
+            - {{ value|default: "empty" }}
+            - {{ value|default: "empty" }}
+            - {{ value|join: ", "}}
+            - {{ value|length }}
+        * custom filters
+             - in file my_filter.py
+                from django import template
+                @register = template.Library()
+
+                @register.filter(name="odd")
+                def off(nums)
+                    """ My custom filter """
+                    return [x for x in nums if x % 2 == 1]
+
+            - use in template:
+
+            {% load my_filter %} - loading the name of the file my_filter.py
+
+            {% for num in nums|odd %} using the name of the filter "odd"
+                <p>{{ num }}</p>
+            {% endfor %}
+ - Template Tags
+        * built-in tags
+            {% if user %}
+            {% else %}
+            {% endif %}
+
+            {% for user %}
+            {% endfor%}
+
+        * custom tags
+            * simple_tag
+                - returns a string
+            * inclusion_tag
+                - returns a rendered template
+            * assignment_tag
+                - sets a variable in the context

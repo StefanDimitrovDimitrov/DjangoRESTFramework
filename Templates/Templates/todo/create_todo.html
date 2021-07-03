@@ -1,0 +1,12 @@
+{% extends 'todo/shared/main2.html' %}
+
+{% block h_title %}Todo create{% endblock %}
+
+
+{% block main_content %}
+    <form action="{% url 'create todo' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button>Create</button>
+    </form>
+{% endblock %}
