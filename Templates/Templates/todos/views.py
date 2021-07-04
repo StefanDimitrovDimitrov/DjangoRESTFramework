@@ -7,7 +7,8 @@ from Templates.todos.models import Todo
 
 def list_todos(request):
     context = {
-        'todos': Todo.objects.all()
+        'todos': Todo.objects.all(),
+        'page_name': 'list_todos',
     }
 
     return render(request, 'todo/list_todos.html', context)
@@ -24,6 +25,7 @@ def create_todo(request):
             form = TodoForm()
     context = {
         'form': form,
+        'page_name': 'create_todo',
     }
 
     return render(request, 'todo/create_todo.html', context)

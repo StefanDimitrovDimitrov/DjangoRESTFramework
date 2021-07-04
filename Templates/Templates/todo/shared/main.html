@@ -8,11 +8,7 @@
     <title>{% block h_title %}Todos App!{% endblock %}</title>
 </head>
 <body>
-<nav>
-    <a href="{% url 'list todos' %}">List</a>
-    <a href="{% url 'create todo' %}">Create</a>
-</nav>
-
+{% include 'todo/shared/partials/nav.html' with page=page_name %}
     {% block content %}
     {% endblock %}
 <footer>

@@ -1,13 +1,17 @@
 {% extends 'todo/shared/main.html' %}
 
+{% load capitalize_filter %}
+{% load todos %}
+
 {% block h_title %}Todo create{% endblock %}
 
 
 {% block content %}
     <p> It here</p>
+    {% todos_count %}
     <ul>
         {% for todo in todos %}
-            <li>{{ todo.text }}</li>
+            <li>{{ todo.text|capitalize:2 }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
