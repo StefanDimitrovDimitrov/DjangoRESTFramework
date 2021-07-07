@@ -1,17 +1,19 @@
 # TEMPLATE_ADVANCED
 
- - Template Inheritance - reuse common parts of app
+ [] Template Inheritance - reuse common parts of the app
         * blocks
             {% block content %}
             {% endblock %}
+
         * extends - use common html
             {% extends "name_common_part.html" %}
 
         * include - include an existing template
             {% include "blog_header.html" %}
 
- - Template Filters - allow us to modify variables before displaying them in the browser
-        IMPORTENT after we load our filter we have to rebuild/restart the project
+ [] Template Filters - allow us to modify variables before displaying them in the browser
+        IMPORTANT after we load our filter we have to rebuild/restart the project
+
         * built-in filters
             - {{ name|lower }} - all letters become lowercase
             - {{ my_date|date:"Y-m-d" }}
@@ -19,7 +21,8 @@
             - {{ value|join: ", "}}
             - {{ value|length }}
             - {{ value|capfirst }} first letter is uppercase
-            - {{ value|truncatechars:10}} - show only 10 charecters after that we have ...
+            - {{ value|truncatechars:10}} - show only 10 characters after that we have ...
+
         * custom filters
              - in file my_filter.py
                 from django import template
@@ -37,7 +40,7 @@
             {% for num in nums|odd %} using the name of the filter "odd"
                 <p>{{ num }}</p>
             {% endfor %}
- - Template Tags
+ [] Template Tags
         * built-in tags
             {% if user %}
             {% else %}

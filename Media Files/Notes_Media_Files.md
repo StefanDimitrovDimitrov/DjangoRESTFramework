@@ -66,10 +66,13 @@ __________________________________________________________________________
         forms.FileInput
 
     [] in the videw def:
-        data = req.POST
-        files = req.FILES
-        form = PythonCreateForm(data, files)
-        OR 
-        form = PythonCreateForm(req.POST,req.FILES)
+        form = PythonCreateForm(request.POST,request.FILES)
 
 ______________________________________________________________________
+1. Settings: MEDIA_URL, MEDIA_ROOT
+2. UrlPatterns: +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+3. Models: image = models.ImageField(upload_to='pythons',)
+4. Install Pillow
+5. html/form: enctype="multipart/form-data"
+6. Form: forms.FileInput
+7. Views: form = PythonCreateForm(request.POST,request.FILES)
