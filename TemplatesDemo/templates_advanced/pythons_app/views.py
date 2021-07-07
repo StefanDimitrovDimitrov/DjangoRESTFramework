@@ -1,7 +1,6 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
-from pythons_core.decorators import group_required
+from templates_advanced.pythons_core.decorators import group_required
 from .forms import PythonCreateForm
 from .models import Python
 
