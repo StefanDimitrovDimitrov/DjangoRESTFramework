@@ -43,7 +43,7 @@ def get_redirect_url(params):
     return redirect_url if redirect_url else 'index'
 
 
-@login_required
+
 def login_view(request):
     if request.method == 'GET':
         context = {
