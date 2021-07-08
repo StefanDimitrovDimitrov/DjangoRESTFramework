@@ -23,6 +23,11 @@ from django.contrib.auth.models import User
 #version 2
 from templates_advanced.pythons_auth.models import UserProfile
 
+class LoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(
+        widget=forms.PasswordInput(),
+    )
 
 class RegisterForm(UserCreationForm):
     class Meta:
