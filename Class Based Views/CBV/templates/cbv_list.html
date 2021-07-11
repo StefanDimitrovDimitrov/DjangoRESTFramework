@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class Based Views Info</title>
+</head>
+<body>
+
+<h1>Class Based Views</h1>
+<ul>
+    {% for view in object_list %}
+        <li>Type: {{ view.type|upper}}</li>
+        <li>Name: <b>{{ view.name }}</b> <a href="{% url 'details' view.id %}">details</a></li>
+    {% empty %}
+        <li> No records yet.</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
