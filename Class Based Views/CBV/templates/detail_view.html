@@ -1,0 +1,12 @@
+{% extends 'common/main.html' %}
+
+{% block content %}
+
+       <h1>{{ current_view.name }}</h1>
+    <ul>
+        <li>{{ current_view.description }}</li>
+        <li>{{ current_view.example.url }}</li>
+    </ul>
+
+
+{% endblock %}

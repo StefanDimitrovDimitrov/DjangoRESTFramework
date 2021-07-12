@@ -42,7 +42,7 @@ class CBVViews(models.Model):
     type = models.CharField(max_length=25, choices=VIEWS_TYPES, default=UNKNOWN)
     name = models.CharField(max_length=25, choices=VIEWS_NAMES, default=UNKNOWN)
     description = models.TextField(max_length=300)
-    example = models.ImageField()
+    example = models.ImageField(upload_to='views')
 
     def __str__(self):
         return self.name

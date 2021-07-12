@@ -17,4 +17,12 @@ class CBVList(ListView):
         return context
 
 class Details(DetailView):
-    pass
+    model = CBVViews
+    template_name = 'detail_view.html'
+    context_object_name = 'current_view'
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
