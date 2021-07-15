@@ -2,10 +2,11 @@ Generic steps
 
 * [ ]  create postgres_db giving a name 
 * [ ]  add db settings
+* [ ]  look at Installations
 * [ ]  start new app for the project in manage.py startapp name
 * [ ]  add the name of the app to the main project'
 * [ ]  add the app in settings
-* [ ]  create fule urls 
+* [ ]  create file urls 
 * [ ]  add urlpatterns us empty list in it
 * [ ]  add in the main url folder path using include django module
 
@@ -24,6 +25,18 @@ Settings.py
   
 * [ ] LOGIN_URL = '/auth/login/'
   
+urlPatterns = [
+
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+Create user_auth_app:
+ * [] startapp NAME_auth
+ * [] do everything applicable for new app Settings, urls and etc,
+ * []      urlpatterns = [
+            path('sign-in/', views.sign_in, name='sign in'),
+            path('sign-out/', views.sign_out, name ='sign out'),
+        ]
+
 
 App steps
 
