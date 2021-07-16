@@ -15,7 +15,7 @@
         </div>
     <div>
                 {% if user.is_authenticated %}
-                    Hello, {{ user.username }}! <a href="{% url 'sign out' %}">Sign out</a>
+                    Hello, {{ user.email }}! <a href="{% url 'sign out' %}">Sign out</a>
                 {% else %}
                     <a href="{% url 'sign in' %}">Sign in</a>
                     <a href="{% url 'sign up' %}">Sign up</a>

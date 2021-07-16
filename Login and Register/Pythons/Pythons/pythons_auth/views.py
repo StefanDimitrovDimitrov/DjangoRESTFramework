@@ -3,18 +3,18 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from Pythons.pythons_auth.forms import SignInForm
+from Pythons.pythons_auth.forms import SignInForm, SignUpForm
 
 
 def sign_up(request):
     if request.POST:
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('index')
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
 
     context = {
         'form': form,

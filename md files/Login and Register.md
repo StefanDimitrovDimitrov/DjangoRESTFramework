@@ -102,7 +102,26 @@ Today's Topics :
 
 
 [] Custom User Model + profile model
+
     + Full Control over the user model
     + Pure user model
      
     - Some code for login/register
+
+    [] we use models.OneToOneField with argument primary_key = True in order to have same id in the user model and in the profile model
+    Example:
+
+    class Profile(models.Model):
+        first_name = models.CharField(max_length=20)
+        user = models.OneToOneField(
+            User,
+            on_delete=models.CASCADE,
+            primary_key=True,
+    )
+
+    Custum User Profile 
+        in Settings:
+            AUTH_USER_MODEL = 'pythons_auth.PythonsUser'
+        
+        in Models:
+            UserModel = get_user_model() - abstract function which allow to take the custum User Model from setting AUTH_USER_MODEL
