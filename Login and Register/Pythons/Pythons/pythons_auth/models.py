@@ -33,6 +33,7 @@ class PythonsUserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
+
 class PythonsUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         unique=True,
@@ -43,3 +44,5 @@ class PythonsUser(AbstractBaseUser, PermissionsMixin):
     )
 
     USERNAME_FIELD = 'email'
+
+    objects = PythonsUserManager()
