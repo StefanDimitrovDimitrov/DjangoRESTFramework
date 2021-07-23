@@ -7,10 +7,10 @@
     <h1>Class Based Views</h1>
     <ul>
         {% for view in object_list %}
-            <li>Type: {{ view.type|upper}}</li>
-            <li>Name: <b>{{ view.name }}</b> <a href="{% url 'details' view.id %}">details</a></li>
+            <li class="list-group-item">Type: {{ view.type|upper}}</li>
+            <li class="list-group-item">Name: <b>{{ view.name }}</b> <a href="{% url 'details' view.id %}">details</a></li>
         {% empty %}
-            <li> No records yet.</li>
+            <li class="list-group-item active"> No records yet.</li>
         {% endfor %}
     </ul>
 
