@@ -26,6 +26,9 @@ class BookListCreate(APIView):
 
 class BookGedUpdateDelete(APIView):
     def put(self, request, book_id):
+        '''
+        book = get_object_or_404(BookModel,pk=book_id)
+        '''
         try:
             book = BookModel.objects.get(id=book_id)
             serializer = BookSerializer(book, data=request.data)
