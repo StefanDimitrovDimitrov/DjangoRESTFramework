@@ -45,4 +45,9 @@ class BookGedUpdateDelete(APIView):
             return Response({"message": "Not found"}, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, book_id):
-        pass
+        try:
+            book = BookModel.objects.get(id=book_id)
+            book.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Exception as ex:
+            return Response({"message": "Not found"}, status=status.HTTP_404_NOT_FOUND)
