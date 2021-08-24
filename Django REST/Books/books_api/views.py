@@ -21,19 +21,28 @@ class BookListCreate(APIView):
         if book_serializer.is_valid():
             book_serializer.save()
             return Response(book_serializer.data, status=status.HTTP_201_CREATED)
-        return Response(book_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(book_serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
 
 class BookGedUpdateDelete(APIView):
-    def put(self,request, book_id):
-        pass
+    def put(self, request, book_id):
+        try:
+            book = BookModel.objects.get(id=book_id)
+            serializer = BookSerializer(book, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors)
+        except:
+            return Response({"message": "not found"}, status=status.HTTP_404_NOT_FOUND)
 
     def get(self, request, book_id):
-        book = BookModel.objects.get(id=book_id)
-        if book:
+        try:
+            book = BookModel.objects.get(id=book_id)
             book_serializer = BookSerializer(book)
             return Response(book_serializer.data)
-        return Response({"message": "Not found"}, status=status.HTTP_400_BAD_REQUEST)
+        except:
+            return Response({"message": "Not found"}, status=status.HTTP_400_BAD_REQUEST)
 
     def delete(self, request, book_id):
         pass
